@@ -17,6 +17,8 @@ public class OverrideTest {
 //        System.out.println("Object");
 //    }
 
+    static char c;
+
     public static void main(String args[]){
         Object o = new String();
 //        OverrideTest test = new OverrideTest();
@@ -28,6 +30,7 @@ public class OverrideTest {
         * 同上
         * */
         m(o);
+        System.out.println("char"+c);
         }
 
 }
