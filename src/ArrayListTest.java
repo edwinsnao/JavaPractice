@@ -45,6 +45,7 @@ public class ArrayListTest {
         for (Object tmp:list) {
             System.out.println(tmp);
         }
+        Object[] a = list.toArray();
 //        List<String> list = new ArrayList<>();
 //        list.add("1");
 //        for (String s : list)
