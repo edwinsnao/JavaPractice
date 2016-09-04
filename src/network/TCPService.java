@@ -3,6 +3,7 @@ package network;
 /**
  * Created by fazhao on 16/9/3.
  */
+import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.ServerSocket;
@@ -19,12 +20,16 @@ import java.net.Socket;
  *
  */
 public class TCPService {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+        InputStream in = null;
+        BufferedReader br = null;
         try {
             //1.建立连接，监听端口
             ServerSocket ss = new ServerSocket(10000);
             //2.连接客户端对象
             Socket accept = ss.accept();
+            ConnectListener listener = new ConnectListener(accept);
+            listener.start();
             //获取ip
             String ip = accept.getInetAddress().getHostAddress();
             String ip1 = accept.getInetAddress().getHostName();
@@ -35,16 +40,25 @@ public class TCPService {
             System.out.println(ip2);
             System.out.println(ip3);
             //3.获取客户端发送过来的数据
-            InputStream in = accept.getInputStream();
+            in = accept.getInputStream();
             //4.开始读取
             byte [] buf = new byte[1024];
             int len = in.read(buf);
             System.out.println(new String(buf,0,len));
+//            br = new BufferedReader(new InputStreamReader(accept.getInputStream()));
+//            String s = null;
+//            while((s = br.readLine())!=null)
+//                System.out.println(s);
+//            String s = br.readLine();
+//            System.out.println(s);
             //5.关闭
-            ss.close();
+//            ss.close();
         } catch (IOException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
+        }finally {
+            in.close();
+//            br.close();
         }
 //        try{
 //            ServerSocket ss = new ServerSocket(10000);

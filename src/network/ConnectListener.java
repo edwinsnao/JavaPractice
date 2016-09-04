@@ -3,15 +3,8 @@ package network;
 /**
  * Created by fazhao on 16/9/4.
  */
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileNotFoundException;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.PrintWriter;
+import java.io.*;
 import java.net.Socket;
-import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -28,41 +21,49 @@ public class ConnectListener extends Thread
     private static final int PORT = 10000;
 //    private static final int PORT = 20108;
     //声明str是一个静态变量，
-    public static String str = null;
+    public static StringBuilder str = new StringBuilder();
     //进行构造（持有另一个类对象的引用）
 //    public ConnectListener(Client client)
 //    {
 //        this.client = client;
 //    }
-    public ConnectListener()
+    public ConnectListener(Socket socket)
     {
+        this.socket = socket;
     }
     //启用线程，处理连接
     public void run()
     {
-        try
-        {
+//        try
+//        {
             //初始化要连接的socket套接字
-            socket = new Socket(IP,PORT);
+//            socket = new Socket(IP,PORT);
 //            client.getjButton1().setEnabled(false);
-        }
-        catch (UnknownHostException e1)
-        {
-            e1.printStackTrace();
-        }
-        catch (IOException e1)
-        {
-            e1.printStackTrace();
-        }
+//        }
+//        catch (UnknownHostException e1)
+//        {
+//            e1.printStackTrace();
+//        }
+//        catch (IOException e1)
+//        {
+//            e1.printStackTrace();
+//        }
         //从服务器端通过socket读取信息
         BufferedReader br = null;
+        InputStream in = null;
         try
         {
-            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+//            br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             //把读到的信息显示到TextArea中
-            while (true)
+            while (socket!=null && !socket.isClosed())
             {
-                str = br.readLine();
+                String ip = socket.getInetAddress().getHostAddress();
+                str.append(ip+"\t");
+                in = socket.getInputStream();
+                byte [] buf = new byte[1024];
+                int len = in.read(buf);
+                str.append(new String(buf,0,len));
+//                str = br.readLine();
 //                client.getjTextArea1().append(str + "\n");
                 //建一个新的文本文档，用于存储从服务器读到的信息
                 File file = new File("/Users/apple/demo.txt");
@@ -80,6 +81,7 @@ public class ConnectListener extends Thread
                     sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
                     date = sdf.format(new Date());
                     out.println(date+"\t"+str);
+                    System.out.println(str);
                     out.flush();
                 }
                 catch (FileNotFoundException e)
@@ -117,8 +119,8 @@ public class ConnectListener extends Thread
             }
         }
     }
-    public static void main(String args[]){
-            ConnectListener listener = new ConnectListener();
-        listener.run();
-        }
+//    public static void main(String args[]){
+//            ConnectListener listener = new ConnectListener();
+//        listener.run();
+//        }
 }
