@@ -48,9 +48,11 @@ public class initTest {
     public static void main(String args[]){
 //        name(x);
 //        name1(x);
+        initTest main = new initTest();
         name2(x);
         System.out.println(x);
-        }
+        System.out.println(main.x);
+    }
 }
 class Parent{
     protected String name;
