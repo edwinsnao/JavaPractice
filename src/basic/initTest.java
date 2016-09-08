@@ -72,3 +72,9 @@ class Child extends Parent{
         Parent p = new Parent();
         }
 }
+
+/**
+*wrong class can't be defined private
+*/
+//private class B{}
+

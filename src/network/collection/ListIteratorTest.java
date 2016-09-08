@@ -13,6 +13,18 @@ public class ListIteratorTest {
      * main方法可以加synchronized
     * */
     public static synchronized void main(String args[]){
+//        int []a[] = new int[4][0];
+//        int a[][] = new int[4][];
+//        for (int i = 0; i < 4; i++) {
+//            for (int j = 0; j < 10; j++) {
+//                [i]a[j] = j;
+//            }
+//        }
+        /**
+        * wrong:相当于构造器里面调用构造器会stackoverflow
+        * */
+//        ListIteratorTest main = new ListIteratorTest();
+//        main.main(null);
         List<Integer> list = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
             list.add(i);
