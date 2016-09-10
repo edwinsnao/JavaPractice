@@ -1,6 +1,7 @@
 package network.basic;
 
 import java.net.*;
+import java.util.Scanner;
 
 /**
  * Created by fazhao on 16/9/9.
@@ -8,6 +9,14 @@ import java.net.*;
 public class DatagramTest {
 
     public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        String input = scanner.nextLine();
+//        Pattern p = Pattern.compile(input);
+        String[] tmp = input.split(" ");
+        int num = Integer.valueOf(tmp[0]);
+        int num1 = Integer.valueOf(tmp[1]);
+        System.out.println(num);
+        System.out.println(num1);
         try (DatagramSocket ds = new DatagramSocket()) {
 //            ds.connect();
         } catch (SocketException e) {
