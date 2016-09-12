@@ -10,12 +10,6 @@ import java.net.UnknownHostException;
 public class LocalPort {
     public static void main(String args[]) {
         int[] port = new int[100];
-//        try {
-//            InetAddress address = InetAddress.getLocalHost();
-//            for (int i = 1; i < 1024; i++) {
-//                Socket s = new Socket("localhost",i);
-//                System.out.println("there is a port on "+i);
-//            }
         String host = "localhost";
         if (args.length > 0) {
             host = args[0];
@@ -36,8 +30,5 @@ public class LocalPort {
                 System.out.println(
                         "There is a server on port " + port[i] + " of " + host);
         }
-//        }finally {
-
-//        }
     }
 }
