@@ -1,18 +1,22 @@
-import java.util.ArrayDeque;
-import java.util.Arrays;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /**
  * Created by fazhao on 16/9/1.
  */
 public class StringTest {
+    static int a,b;
     public StringTest(){
         super();
     }
 
+    public static void test(int aa,int bb){
+        a = aa--;
+        b = a * bb;
+    }
+
     public static void main(String args[]) {
+        test(4,5);
+        System.out.println(a+","+b);
         /**
          * I come from China.这句话在这里并不是作为一个字符串，所以args[0]是读取其中的第几个词
          * */
