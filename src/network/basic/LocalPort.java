@@ -9,16 +9,17 @@ import java.net.UnknownHostException;
  */
 public class LocalPort {
     public static void main(String args[]) {
-        int[] port = new int[100];
+        int[] port = new int[1024];
         String host = "localhost";
         if (args.length > 0) {
             host = args[0];
         }
         for (int i = 1; i < 1024; i++) {
             try {
-                System.out.println("finding port..." + i);
+//                System.out.println("finding port..." + i);
                 Socket s = new Socket(host, i);
                 port[i] = i;
+                System.out.println("there is a server on port" + i);
             } catch (UnknownHostException e) {
                 System.out.println(e);
                 break;
