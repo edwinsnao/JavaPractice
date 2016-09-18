@@ -60,6 +60,15 @@ public class GetTest {
                 * getHeadFields已经返回了下面大部分方法的结果了
                 * */
                 System.out.println("Head:" + uc.getHeaderFields());
+                /**
+                * 等价于上面
+                * */
+                for (int i = 0; ; i++) {
+                    String header = uc.getHeaderField(i);
+                    if(header == null)
+                        break;
+                    System.out.println(uc.getHeaderFieldKey(i)+":"+header);
+                }
                 System.out.println("URL:" + uc.getURL());
                 System.out.println("ContentEncoding:" + uc.getContentEncoding());
                 System.out.println("Content:" + uc.getContent());
@@ -75,6 +84,7 @@ public class GetTest {
                     System.out.println("Permission:" + uc.getPermission());
                     System.out.println("Expiration:" + uc.getExpiration());
                     System.out.println("useCaches:" + uc.getUseCaches());
+                    System.out.println("file:" + u.getFile());
                     uc.connect();
                     InputStream in = u.openStream();
                     in = new BufferedInputStream(in);
