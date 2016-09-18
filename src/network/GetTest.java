@@ -4,6 +4,9 @@ package network;
  * Created by fazhao on 16/9/15.
  */
 
+import network.cache.SimpleCacheRequest;
+import network.cache.SimpleCacheResponse;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -11,9 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.*;
 import java.text.SimpleDateFormat;
-import java.util.Iterator;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 
 public class GetTest {
 
@@ -86,6 +87,16 @@ public class GetTest {
                     System.out.println("useCaches:" + uc.getUseCaches());
                     System.out.println("file:" + u.getFile());
                     uc.connect();
+                System.out.println("Cache");
+                SimpleCacheRequest request = new SimpleCacheRequest();
+                SimpleCacheResponse response = new SimpleCacheResponse(request,uc);
+//                response.getBody();
+                Map<String, java.util.List<String>> map = response.getHeaders();
+                Iterator iterator1 = map.entrySet().iterator();
+                while (iterator1.hasNext()){
+                    System.out.println(iterator1.next());
+                }
+                System.out.println(response.isExpired());
                     InputStream in = u.openStream();
                     in = new BufferedInputStream(in);
                     BufferedReader r = new BufferedReader(new InputStreamReader(in));
