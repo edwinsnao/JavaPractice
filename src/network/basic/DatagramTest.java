@@ -8,6 +8,14 @@ import java.util.Scanner;
  */
 public class DatagramTest {
 
+    /**
+    * 1 1
+     1
+     1
+     This packet is addressed to www.baidu.com/14.215.177.37 on port 80
+     There are 15 bytes of data in the packet
+     This is a test.
+    * */
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         String input = scanner.nextLine();
@@ -28,7 +36,11 @@ public class DatagramTest {
         try {
 //            InetAddress ia = InetAddress.getByName("www.ibiblio.org");
             InetAddress ia = InetAddress.getByName("www.baidu.com");
+            /**
+            * 任意端口都可以？
+            * */
             int port = 7;
+//            int port = 80;
             DatagramPacket dp
                     = new DatagramPacket(data, data.length, ia, port);
             System.out.println("This packet is addressed to "

@@ -4,7 +4,7 @@ package c3;
  * Created by Kings on 2016/8/15.
  */
 public class NamedTest {
-     int test = 1;
+     static int test = 1;
 
     public int getTest() {
         return test;
