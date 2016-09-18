@@ -59,21 +59,15 @@ public class BinarySaverTest {
                 e.printStackTrace();
             }
         String name = "/Users/apple/Movies/test1";
-        FileOutputStream out = null;
-        try {
-            out = new FileOutputStream(name);
+//        FileOutputStream out = null;
+        try(FileOutputStream out = new FileOutputStream(name)) {
+//            out = new FileOutputStream(name);
             out.write(data);
             out.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            try {
-                out.close();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
         }
     }
 }
