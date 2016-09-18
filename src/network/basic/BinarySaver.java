@@ -1,6 +1,7 @@
 package network.basic;
 
 import java.io.BufferedInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
@@ -40,26 +41,24 @@ public class BinarySaver {
                 offset += readed;
                 System.out.println("readed:"+readed+"bytes ,expected:"+length+"bytes");
             }
-            System.out.println("test1");
+            /**
+            * 如果不加这一句就不会写入文件
+            * */
             in.close();
-            System.out.println("test2");
             System.out.println("readed:"+readed+"bytes ,expected:"+length+"bytes");
             if(offset != length) {
                 throw new IOException("Only read"+offset+", expected:"+length);
             }
-            System.out.println("test3");
             /**
             * 因为baidu首页返回的file是空的，所以就没显示出来
             * */
-            String name = url.getFile();
-            System.out.println(name);
-            name = name.substring(name.lastIndexOf("/")+1);
-            System.out.println(name);
-            System.out.println("test4");
-//            FileOutputStream out = new FileOutputStream(name);
-//            out.write(data);
-//            out.flush();
-//            out.close();
+//            String name = url.getFile();
+            String name = "/Users/apple/Movies/test";
+//            name = name.substring(name.lastIndexOf("/")+1);
+            FileOutputStream out = new FileOutputStream(name);
+            out.write(data);
+            out.flush();
+            out.close();
         } catch (IOException e) {
             e.printStackTrace();
         }

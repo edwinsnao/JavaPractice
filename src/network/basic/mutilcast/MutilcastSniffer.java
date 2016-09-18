@@ -13,6 +13,10 @@ public class MutilcastSniffer {
 
     public static void main(String[] args) {
 
+        /**
+         * `Can't assign requested address` java.net.SocketException using Ehcache multicast
+        * -Djava.net.preferIPv4Stack=true
+        * */
         InetAddress group = null;
 //        try {
 //            group = InetAddress.getByName("sap.mcast.net");
