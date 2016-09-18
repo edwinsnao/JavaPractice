@@ -10,6 +10,7 @@ public class IPDemo {
             /**
             *里面的参数是根据ifconfig里面的来决定的，
              * 所以mac里面不是eth0而是en0，如果使用eth0则nullpointer
+             * 没有网络时会出现nullpointer(en0是wifi)
             * */
 //            NetworkInterface eth0 = NetworkInterface.getByName("eth0");
             NetworkInterface eth0 = NetworkInterface.getByName("en0");

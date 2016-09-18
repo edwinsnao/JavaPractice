@@ -12,8 +12,8 @@ import java.net.SocketException;
 
 class UdpPoke {
 
-    public static final int port = 13;
-    public static final String address = "rama.poly.edu";
+    public static final int port = 80;
+    public static final String address = "www.baidu.com";
     private int             bufferSize; // in bytes
     private DatagramSocket socket;
     private DatagramPacket outgoing;
@@ -23,8 +23,8 @@ class UdpPoke {
 
         outgoing = new DatagramPacket(new byte[1], 1, host, port);
         this.bufferSize = bufferSize;
-        socket = new DatagramSocket(0);
-//        socket = new DatagramSocket(port);
+//        socket = new DatagramSocket(0);
+        socket = new DatagramSocket(port);
         socket .connect(host, port); // requires Java 2
         socket .setSoTimeout(timeout);
 

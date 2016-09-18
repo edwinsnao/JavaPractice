@@ -1,8 +1,8 @@
 package network.basic;
 
 import java.io.IOException;
-import java.net.ServerSocket;
-import java.net.UnknownHostException;
+import java.net.DatagramSocket;
+import java.net.SocketException;
 
 /**
  * Created by fazhao on 16/9/12.
@@ -15,17 +15,47 @@ public class LocalPort {
             host = args[0];
         }
 //        for (int i = 1; i < 1024; i++) {
-        for (int i = 1; i < 65535; i++) {
+//        for (int i = 1; i < 65535; i++) {
+        /**
+        * udp端口在unix系统下？  >1024 <65535
+         * there is a server port for udp on 3283
+         there is a server port for udp on 5353
+         there is a server port for udp on 49332
+         there is a server port for udp on 55443
+         there is a server port for udp on 55609
+         there is a server port for udp on 56993
+         there is a server port for udp on 57393
+         there is a server port for udp on 58075
+         there is a server port for udp on 62758
+         1024下的全部都会输出的
+        * */
+        for (int i = 1024; i < 65535; i++) {
             try {
 //                System.out.println("finding port..." + i);
 //                Socket s = new Socket(host, i);
-                ServerSocket s = new ServerSocket(i);
+//                ServerSocket s = new ServerSocket(i);
+
+                /**
+                * UDP port
+                * */
+                DatagramSocket socket = new DatagramSocket(i);
+                socket.close();
 //                port[i] = i;
-                System.out.println("there is a server on port" + i);
-            } catch (UnknownHostException e) {
-                System.out.println(e);
-                break;
-            } catch (IOException e) {
+                /**
+                * other
+                * */
+//                System.out.println("there is a server on port" + i);
+            }catch (SocketException e){
+                /**
+                * udp
+                * */
+                System.out.println("there is a server port for udp on " + i);
+            }
+//            catch (UnknownHostException e) {
+//                System.out.println(e);
+//                break;
+//            }
+            catch (IOException e) {
             }
         }
 //        for (int i = 0; i < port.length; i++) {
