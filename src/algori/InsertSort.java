@@ -8,8 +8,13 @@ class InsertSort
     public void insert_sort(int[] arrays){
         for(int i=0;i<arrays.length;i++){
             for(int j=i;j>0;j--){
+                /**
+                * 所以把i=0改成i=1
+                * */
                 if(j==0)
                     continue;
+//                if(j==0)
+//                    continue;
                 if(arrays[j]>arrays[j-1]){
                     int tmp;
                     tmp=arrays[j];

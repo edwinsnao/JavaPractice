@@ -7,6 +7,10 @@ class ShellSortTest
 {
     public void shell_sort(int [] arrays){
         for(int d=5;d>0;d=d-2){
+            /**
+            * 减少3则错，所以d得步长还是要算的？
+            * */
+//        for(int d=5;d>0;d=d-3){
             for(int c=0;c<arrays.length-d;c++){
                 for(int i=c;i<arrays.length;i=i+d){
                     for(int j=i;j>0;j=j-d){
