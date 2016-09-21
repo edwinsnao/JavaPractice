@@ -6,7 +6,7 @@ package algori;
 public class ShellSortPrac {
     int tmp = 0;
     public void sort(int arr[]){
-        for (int d = 5; d > 0; d/=2) {
+        for (int d = 5 ; d > 0; d/=2) {
             for (int i = 0; i < arr.length -d; i+=d) {
                 for (int j = i; j >0 ; j-=d) {
                     if(arr[j]<arr[j-d]){
@@ -29,17 +29,25 @@ public class ShellSortPrac {
         for (gap = n / 2; gap > 0; gap /= 2) //步长
             for (i = 0; i < gap; i++)        //直接插入排序
             {
+//                why wrong?
+//                for (j = i + gap; j < n && a[j] < a[j-gap]; j += gap){
+//                    int temp = a[j];
+//                    a[j] = a[j-gap];
+//                    a[j-gap] = temp;
+//                }
                 for (j = i + gap; j < n; j += gap)
                     if (a[j] < a[j - gap])
                     {
                         int temp = a[j];
-                        int k = j - gap;
-                        while (k >= 0 && a[k] > temp)
-                        {
-                            a[k + gap] = a[k];
-                            k -= gap;
-                        }
-                        a[k + gap] = temp;
+//                        int k = j - gap;
+//                        while (k >= 0 && a[k] > temp)
+//                        {
+//                            a[k + gap] = a[k];
+//                            k -= gap;
+//                        }
+//                        a[k + gap] = temp;
+                        a[j] = a[j-gap];
+                        a[j-gap] = temp;
                     }
             }
         for (int h = 0; h < a.length; h++) {
@@ -51,8 +59,8 @@ public class ShellSortPrac {
     {
         ShellSortPrac s=new ShellSortPrac();
         int[] a={45,20,80,40,26,58,66,70};
-        s.sort(a);
-//        s.shellsort1(a,a.length);
+//        s.sort(a);
+        s.shellsort1(a,a.length);
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i]+" ");
         }
