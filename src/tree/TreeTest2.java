@@ -3,7 +3,9 @@ package tree;
 /**
  * Created by fazhao on 16/9/20.
  */
+
 import java.util.ArrayDeque;
+import java.util.Queue;
 
 
 public class TreeTest2 {
@@ -18,6 +20,42 @@ public class TreeTest2 {
     }
 
     TreeNode root;
+
+    // 获取最大宽度
+    public static int getMaxWidth(TreeNode root) {
+        if (root == null)
+            return 0;
+
+        Queue<TreeNode> queue = new ArrayDeque<TreeNode>();
+        int maxWitdth = 1; // 最大宽度
+        queue.add(root); // 入队
+
+        while (true) {
+            int len = queue.size(); // 当前层的节点个数
+            if (len == 0)
+                break;
+            while (len > 0) {// 如果当前层，还有节点
+                TreeNode t = queue.poll();
+                len--;
+                if (t.left != null)
+                    queue.add(t.left); // 下一层节点入队
+                if (t.right != null)
+                    queue.add(t.right);// 下一层节点入队
+            }
+            maxWitdth = Math.max(maxWitdth, queue.size());
+        }
+        return maxWitdth;
+    }
+
+    public static int getDepth(TreeNode root){
+        if(root == null)
+            return 0;
+        else{
+            int left = getDepth(root.left);
+            int right = getDepth(root.right);
+            return 1+ Math.max(left,right);
+        }
+    }
 
     public TreeTest2(int[] array){
         root=makeBinaryTreeByArray(array,1);
@@ -106,5 +144,7 @@ public class TreeTest2 {
         TreeTest2 tree=new TreeTest2(arr);
         tree.depthOrderTraversal();
         tree.levelOrderTraversal();
+        System.out.println(""+getDepth(tree.root));
+        System.out.println(""+getMaxWidth(tree.root));
     }
 }
