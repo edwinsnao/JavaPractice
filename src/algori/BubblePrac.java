@@ -114,13 +114,43 @@ public class BubblePrac {
 //            System.out.print(array[i]+" ");
 //        }
     }
+
+    public static void sort1(int[] a){
+        int tmp = 0;
+        int times = 0;
+        /**
+        * bubblesort不能这样优化？
+        * */
+//        boolean swaped = false;
+        for (int i = 0; i < a.length - 1; i++) {
+//            swaped = false;
+            for (int i1 = 0; i1 < a.length - 1 -i; i1++) {
+                if(a[i1] < a[i1 + 1]){
+                    tmp = a[i1];
+                    a[i1] = a[i1 + 1];
+                    a[i1 + 1] = tmp;
+//                    swaped = true;
+                }
+            }
+            times++;
+//            if(!swaped)
+//                break;
+        }
+        for (int i1 = 0; i1 < a.length; i1++) {
+            System.out.print(a[i1]+" ");
+        }
+        System.out.println("");
+        System.out.println(times);
+    }
+
     public static void main(String[] args)
     {
         BubblePrac b=new BubblePrac();
         int[] a={4,5,1,7,9,6,3,10,20,21,99,0};
 //        b.sort(a);
 //        b.BubbleSort_2(a,a.length);
-        b.BubbleSort_3(a,a.length);
+//        b.BubbleSort_3(a,a.length);
+        sort1(a);
 //        b.BubbleSort_1(a,a.length);
     }
 }
