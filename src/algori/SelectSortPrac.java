@@ -5,6 +5,51 @@ package algori;
  */
 public class SelectSortPrac {
 
+    public static void select_sort2(int[] a){
+        int min = 0;
+        int tmp = 0;
+        for (int i = 0; i <a.length ; i++) {
+            min = i;
+//            for (int j = i; j < a.length; j++) {
+            /**
+            * 不加1会进行多一步的无谓的操作
+            * */
+            for (int j = i + 1; j < a.length; j++) {
+                if(a[min] < a[j])
+                    min = j;
+            }
+            if(min != i){
+                tmp = a[i];
+                a[i] = a[min];
+                a[min] = tmp;
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]+" ");
+        }
+    }
+
+    public static void select_sort1(int[] a){
+        int min = 0;
+        int tmp = 0;
+        for (int i = 0; i < a.length; i++) {
+            min = i;
+            for (int j = i + 1; j < a.length ; j++) {
+                if(a[j]<a[min])
+                    min = j;
+            }
+            if(min != i){
+                tmp =a[i];
+                a[i] = a[min];
+                a[min] = tmp;
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]+" ");
+        }
+
+    }
+
         public static void select_sort(int[] a){
             int min = 0;
             int tmp = 0;
@@ -52,7 +97,9 @@ public class SelectSortPrac {
         public static void main(String args[]){
             int[] a={4,5,1,7,9,6,3,10,20,21,99,0};
 //        _choiceSort(a);
-        select_sort(a);
+//        select_sort(a);
+//        select_sort1(a);
+        select_sort2(a);
             }
 
 }

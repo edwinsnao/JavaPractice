@@ -4,6 +4,23 @@ package algori;
  * Created by fazhao on 16/9/19.
  */
 class InsertSort {
+
+    public static void sort1(int[] a){
+        int tmp = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = i; j > 0; j--) {
+                if(a[j]>a[j-1]){
+                    tmp = a[j];
+                    a[j] = a[j-1];
+                    a[j-1] = tmp;
+                }
+            }
+        }
+        for (int i = 0; i <a.length ; i++) {
+            System.out.print(a[i]+" ");
+        }
+    }
+
     /**
      * wrong
      */
@@ -58,6 +75,7 @@ class InsertSort {
         InsertSort i = new InsertSort();
         int[] a = {4, 8, 6, 7, 2, 9, 5, 10, 54};
 //        i.insert_sort(a);
-        i.sort(a);
+//        i.sort(a);
+        i.sort1(a);
     }
 }
