@@ -5,6 +5,27 @@ package algori;
  */
 public class SelectSortPrac {
 
+        public static void select_sort(int[] a){
+            int min = 0;
+            int tmp = 0;
+            for (int i = 0; i < a.length; i++) {
+                min = i;
+                for (int i1 = i + 1; i1 < a.length; i1++) {
+                    if(a[i1] < a[min]){
+                        min = i1;
+                    }
+                }
+                if(i != min){
+                    tmp = a[i];
+                    a[i] = a[min];
+                    a[min] = tmp;
+                }
+            }
+            for (int i = 0; i < a.length; i++) {
+                System.out.print(a[i]+" ");
+            }
+        }
+
         public static void _choiceSort(int[] a) {
             if (a == null || a.length <= 0) {
                 return;
@@ -30,7 +51,8 @@ public class SelectSortPrac {
         }
         public static void main(String args[]){
             int[] a={4,5,1,7,9,6,3,10,20,21,99,0};
-        _choiceSort(a);
+//        _choiceSort(a);
+        select_sort(a);
             }
 
 }
