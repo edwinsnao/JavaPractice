@@ -213,6 +213,25 @@ public class LinkList {
 
         return head;
     }
+
+    /**
+    * 反转链表
+    *
+    * */
+    public Node1 reverse(Node1 head){
+        Node1 reverseHead = null;
+        Node1 current = head;
+        Node1 next = null;
+        while(current != null){
+            next = current.next;
+            current.next = reverseHead;
+            reverseHead = current;
+            current = next;
+        }
+        return reverseHead;
+
+    }
+
 //    public Node1 merge(Node1 head1,Node1 head2){
 //        if(head1 == null && head2 ==null)
 //            return null;
@@ -286,8 +305,10 @@ public class LinkList {
 //        list2.print(list2.mergeSortList(list1.getHead(),list2.getHead()));
 //        list2.print(list2.merge(list1.getHead(),list2.getHead()));
 //        list2.head = list2.mergeSortList(list1.getHead(),list2.getHead());
-        list2.head = list2.mergeLinkList(list1.getHead(),list2.getHead());
-        list2.print(list2.head);
+
+//        list2.head = list2.mergeLinkList(list1.getHead(),list2.getHead());
+//        list2.print(list2.head);
+        list1.print(list1.reverse(list1.getHead()));
     }
 }
 
