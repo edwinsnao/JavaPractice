@@ -5,6 +5,27 @@ package algori;
  */
 public class SelectSortPrac {
 
+    public static void select_sort3(int[] a){
+        int tmp = 0 ;
+        int min;
+        for (int i = 0; i < a.length; i++) {
+            min = i;
+            for (int j = i+1; j < a.length ; j++) {
+                if(a[j]>a[min]){
+                    min = j;
+                }
+            }
+            if(min != i){
+                tmp = a[min];
+                a[min] = a[i];
+                a[i] = tmp;
+            }
+        }
+        for (int i = 0; i < a.length; i++) {
+            System.out.print(a[i]+" ");
+        }
+    }
+
     public static void select_sort2(int[] a){
         int min = 0;
         int tmp = 0;
@@ -99,7 +120,8 @@ public class SelectSortPrac {
 //        _choiceSort(a);
 //        select_sort(a);
 //        select_sort1(a);
-        select_sort2(a);
+//        select_sort2(a);
+        select_sort3(a);
             }
 
 }

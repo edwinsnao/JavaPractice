@@ -5,6 +5,44 @@ package algori;
  */
 public class QuickSortPrac {
 
+    public static void quick3(int[] a,int i, int j){
+        if(i > j)
+            return;
+        int l = i;
+        int r = j;
+        int x = a[l];
+        while(l<r){
+            while(x<a[r])
+                r--;
+            a[l++] = a[r];
+            while(x > a[l])
+                l++;
+            a[r--] = a[l];
+        }
+        a[l] = x;
+        quick(a,i,l-1);
+        quick(a,r+1,j);
+    }
+
+    public static void quick2(int[] a,int i,int j){
+        if(i > j)
+            return;
+        int l = i;
+        int r = j;
+        int x = a[l];
+        while(l < r){
+            while(x < a[r])
+                r--;
+            a[l++] = a[r];
+            while(x > a[l])
+                l++;
+            a[r--] = a[l];
+        }
+        a[l] = x;
+        quick(a,i,l-1);
+        quick(a,r+1,j);
+    }
+
     public static void quick1(int[] a,int i,int j){
         if(i>j)
             return;
@@ -79,7 +117,9 @@ public class QuickSortPrac {
         int[] a={45,20,80,40,26,58,66,70};
 //        sort(a,0,a.length-1);
 //        quick(a,0,a.length-1);
-        quick1(a,0,a.length-1);
+//        quick1(a,0,a.length-1);
+//        quick2(a,0,a.length-1);
+        quick3(a,0,a.length-1);
         for (int i = 0; i < a.length; i++) {
             System.out.print(a[i]+" ");
         }

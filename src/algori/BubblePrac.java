@@ -6,6 +6,24 @@ package algori;
 public class BubblePrac {
     int tmp = 0;
     int times = 0;
+
+    public static void bubble_sort1(int[] a){
+        int tmp = 0;
+        for (int i = 0; i < a.length; i++) {
+            for (int j = 0; j < a.length -i - 1; j++) {
+                if(a[j] < a[j+1]){
+                    tmp = a[j];
+                    a[j] = a[j+1];
+                    a[j+1] = tmp;
+                }
+            }
+        }
+        for (int j = 0; j < a.length; j++) {
+
+            System.out.print(a[j]+" ");
+        }
+    }
+
     public static void bubble_sort(int[] a){
         int tmp = 0;
         for (int i = 0; i < a.length; i++) {
@@ -172,7 +190,8 @@ public class BubblePrac {
 //        b.BubbleSort_2(a,a.length);
 //        b.BubbleSort_3(a,a.length);
 //        sort1(a);
-        bubble_sort(a);
+//        bubble_sort(a);
+        bubble_sort1(a);
 //        b.BubbleSort_1(a,a.length);
     }
 }
