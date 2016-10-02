@@ -15,11 +15,12 @@ public class Get {
         int english = 0;
         char[] input = s.toCharArray();
         for (int i = 0; i < input.length; i++) {
-            if(input[i]>='0' && input[i]<='9')
+            char in = input[i];
+            if(in>='0' && in<='9')
                 num++;
-            else if(input[i]>='a'&&input[i]<='z' || input[i]>='A' && input[i]<='Z')
+            else if(in>='a'&&in<='z' || in>='A' && in<='Z')
                 english++;
-            else if(input[i] == ' ')
+            else if(in == ' ')
                 space++;
             else
                 other++;
