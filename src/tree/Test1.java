@@ -99,6 +99,47 @@ public class Node{   //节点类
 
     }
 
+    public void InOrderFeiDiGui(Node root){
+        Node tmp = null;
+        Stack<Node> stack = new Stack<>();
+        while (root != null || stack.size()>0){
+            if(root != null){
+                stack.push(root);
+                root = root.lchild;
+            }else{
+                root = stack.pop();
+                System.out.print(root.data+" ");
+                root = root.rchild;
+            }
+        }
+    }
+
+    public void PostOrder(Node root){
+        Node tmp = null;
+        Stack<Node> stack = new Stack<>();
+        Stack<Node> output = new Stack<>();
+        while(root != null || stack.size()>0){
+            if(root != null ){
+                stack.push(root);
+                output.push(root);
+                root = root.rchild;
+            }else{
+                root = stack.pop();
+                root = root.lchild;
+            }
+        }
+        /**
+        * wrong,因为output.pop会减少大小
+        * */
+//        for (int i = 0; i < output.size(); i++) {
+//            System.out.print(output.pop().data+" ");
+//        }
+        while(output.size()>0)
+            System.out.print(output.pop().data+" ");
+
+    }
+
+
     public void PreOrder(Node node) {
         if (node == null) {
             return;
@@ -142,9 +183,13 @@ public class Node{   //节点类
         System.out.println("\nLastOrder:");
 //        tree.LastOrder(tree.creatBinaryTree("A(F,B(O,J))"));
         tree.LastOrder(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
+        System.out.println("");
+        tree.PostOrder(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
         System.out.println("\nCenterOrder:");
 //        tree.CneterOrder(tree.creatBinaryTree("A(F,B(O,J))"));
         tree.CneterOrder(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
+        System.out.println("");
+        tree.InOrderFeiDiGui(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
 
     }
 
