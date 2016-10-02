@@ -1,5 +1,7 @@
 package tree;
 
+import java.util.Stack;
+
 /**
  * Created by Kings on 2016/4/4.
  */
@@ -79,6 +81,24 @@ public class Node{   //节点类
         }
         return node[0];
     }
+
+
+    public void PreOrderFeiDiGui(Node root){
+        Node tmp = root;
+        Stack<Node> stack = new Stack();
+        while(root!=null || stack.size()>0){
+            if(root != null ) {
+                System.out.print(root.data + " ");
+                stack.push(root);
+                root = root.lchild;
+            }else{
+                root = stack.pop();
+                root = root.rchild;
+            }
+        }
+
+    }
+
     public void PreOrder(Node node) {
         if (node == null) {
             return;
@@ -116,6 +136,8 @@ public class Node{   //节点类
         Test1 tree=new Test1();
         System.out.println("PreOrder:");
 //        tree.PreOrder(tree.creatBinaryTree("A(F,B(O,J))"));
+        tree.PreOrderFeiDiGui(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
+        System.out.println("");
         tree.PreOrder(tree.creatBinaryTree("A(F,B(O(Z,H),J))"));
         System.out.println("\nLastOrder:");
 //        tree.LastOrder(tree.creatBinaryTree("A(F,B(O,J))"));
