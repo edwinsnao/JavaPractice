@@ -12,6 +12,10 @@ public class GetParent {
     static class B extends A{
         protected String getString(){
 //            return "B";
+            /**
+            * 正常手段不行
+            * 除了修改B，还可以使用反射
+            * */
             return super.getString();
         }
     }
