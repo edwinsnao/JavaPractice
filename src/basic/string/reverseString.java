@@ -17,5 +17,12 @@ public class reverseString {
     public static void main(String args[]){
         String input = "Do or do not, there is no try.";
         System.out.println(reverseString(input));
+        StringBuilder tmp = new StringBuilder(input);
+        System.out.println(tmp);
+        /**
+        * StringBuilder可以reverse逆序输出，不按单词，直接
+        * 每个字的逆序（wps笔试题）
+        * */
+        System.out.println(tmp.reverse());
         }
 }
