@@ -6,7 +6,7 @@ import java.util.Hashtable;
 /**
  * Created by fazhao on 2016/10/13.
  */
-public class addTest {
+public  class addTest {
     /**
     * 数字开头不行
     * */
@@ -15,11 +15,21 @@ public class addTest {
 
     static int static1 = 2;
 
+//    public abstract void test();
+
     addTest(){
         static1 = 0;
     }
 
     public static void main(String args[]){
+        int casetest = 1;
+        switch (casetest){
+            /**
+            * case后面不可以是null
+            * */
+//            case null:
+//                break;
+        }
         HashMap map = new HashMap();
         /**
         * hashmap的key和值都可以null
