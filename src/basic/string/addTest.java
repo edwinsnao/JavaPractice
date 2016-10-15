@@ -1,5 +1,8 @@
 package basic.string;
 
+import java.util.HashMap;
+import java.util.Hashtable;
+
 /**
  * Created by fazhao on 2016/10/13.
  */
@@ -17,7 +20,33 @@ public class addTest {
     }
 
     public static void main(String args[]){
+        HashMap map = new HashMap();
+        /**
+        * hashmap的key和值都可以null
+        * */
+        map.put(null,null);
+        Hashtable map1 = new Hashtable();
+        map1.put(1,1);
+        /**
+        * hashtable不允许nullkey和null值
+         * java.lang.NullPointerException
+        * */
+        map1.put(null,null);
         addTest test1 = new addTest();
+        StringBuilder sb = new StringBuilder(",test`");
+        /**
+        * 下面的是错误的
+        * */
+//        StringBuilder sb = new StringBuilder(,test`);
+        /**
+        * 6
+        * */
+        System.out.println(sb.length());
+
+        /**
+        * 下面的语句是错误的
+        * */
+//        System.out.println(,);
         /**
         * 原来是没错的，我以为是非法向前引用；
         * */
