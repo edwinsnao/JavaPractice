@@ -41,7 +41,7 @@ public  class addTest {
         * hashtable不允许nullkey和null值
          * java.lang.NullPointerException
         * */
-        map1.put(null,null);
+//        map1.put(null,null);
         addTest test1 = new addTest();
         StringBuilder sb = new StringBuilder(",test`");
         /**
@@ -85,5 +85,13 @@ public  class addTest {
         System.out.println((long)a);
         System.out.println(a);
         System.out.println(String.valueOf(a+=b));
+
+        /**
+        * 奇偶数判断的方法
+         * i & 0x1 == 1 则为奇数，否则偶数
+        * */
+        for (int i = 0; i < 10; i++) {
+            System.out.println(i+":"+String.valueOf(i & 0x1));
+        }
     }
 }
