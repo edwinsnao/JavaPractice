@@ -7,7 +7,10 @@ import java.util.Scanner;
  */
 public class YouDaoTest {
     public static void main(String args[]) {
-        int sum = 10;
+        /**
+        * 第一题
+        * */
+       /* int sum = 10;
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
         if (number == 1)
@@ -43,6 +46,22 @@ public class YouDaoTest {
             System.out.println("" + sum);
 //            sum = (int) (Math.pow(10,number) - (number - 1) * 9);
 //            System.out.println(""+sum);
+}
+            */
+
+        Scanner sc = new Scanner(System.in);
+        int number = sc.nextInt();
+        int[][] a = new int[number][2];
+        for (int i = 0; i < number; i++) {
+            a[i][0] = sc.nextInt();
+            a[i][1] = sc.nextInt();
         }
+        for (int i = 0; i < number - 1; i++) {
+            if(a[i][1] == a[i+1][1]) {
+                System.out.println("true");
+                return ;
+            }
+        }
+        System.out.println("false");
     }
 }
