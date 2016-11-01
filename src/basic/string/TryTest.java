@@ -4,9 +4,15 @@ package basic.string;
  * Created by fazhao on 2016/11/1.
  */
 public class TryTest {
-    TryTest(){
-
-    }
+    /**
+    * 如果只定义了有参构造函数，没有定义无参，编译器不会自动加上
+     * 这时Class.newInstance只找无参数构造函数
+     * 因为找不到，所以报错
+     * iationException: basic.string.TryTest
+    * */
+//    TryTest(){
+//
+//    }
     TryTest(String s){
         System.out.println(s);
     }
@@ -82,4 +88,15 @@ public class TryTest {
             System.out.println("haha");
         }
         }
+
+        class B extends TryTest{
+            B(String s){
+                super(null);
+            }
+        }
+}
+class B extends TryTest{
+    B(String s){
+        super(null);
+    }
 }
