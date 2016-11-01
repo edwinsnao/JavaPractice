@@ -18,6 +18,7 @@ public class TryTest {
 //            Class class2 = (class) class1.newInstance();
             Object class3 = class1.newInstance();
             Object class4 = class1.newInstance();
+            TryTest class6 = (TryTest) class1.newInstance();
             TryTest class2 = TryTest.class.newInstance();
             TryTest class5 = TryTest.class.newInstance();
             System.out.println(""+class1.getName());
@@ -37,6 +38,7 @@ public class TryTest {
             System.out.println(""+class3);
             System.out.println(""+class4);
             System.out.println(""+class5);
+            System.out.println(""+class6);
             /**
             * 这样写也是可以的
              * 而且最好写成"Java".equals(s);
