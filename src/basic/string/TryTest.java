@@ -4,6 +4,13 @@ package basic.string;
  * Created by fazhao on 2016/11/1.
  */
 public class TryTest {
+    TryTest(){
+
+    }
+    TryTest(String s){
+        System.out.println(s);
+    }
+
     public static void main(String args[]){
         String s = "hello";
         String[] s1 = null;
@@ -18,6 +25,10 @@ public class TryTest {
 //            Class class2 = (class) class1.newInstance();
             Object class3 = class1.newInstance();
             Object class4 = class1.newInstance();
+            /**
+            * newInstance不可以有参数
+            * */
+//            Object class4 = class1.newInstance("hello");
             TryTest class6 = (TryTest) class1.newInstance();
             TryTest class2 = TryTest.class.newInstance();
             TryTest class5 = TryTest.class.newInstance();
