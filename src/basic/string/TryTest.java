@@ -5,7 +5,7 @@ package basic.string;
  */
 public class TryTest {
     public static void main(String args[]){
-        String s = null;
+        String s = "hello";
         String[] s1 = null;
         try {
             /**
@@ -16,13 +16,27 @@ public class TryTest {
             * cannot be cast to java.lang.Class
             * */
 //            Class class2 = (class) class1.newInstance();
+            Object class3 = class1.newInstance();
+            Object class4 = class1.newInstance();
             TryTest class2 = TryTest.class.newInstance();
+            TryTest class5 = TryTest.class.newInstance();
             System.out.println(""+class1.getName());
             /**
             * wrong
             * */
 //            System.out.println(""+class2.main(s1));
+            /**
+            * 应该不是单例了
+             * basic.string.TryTest
+             basic.string.TryTest@511d50c0
+             basic.string.TryTest@60e53b93
+             basic.string.TryTest@5e2de80c
+             basic.string.TryTest@1d44bcfa
+            * */
             System.out.println(""+class2);
+            System.out.println(""+class3);
+            System.out.println(""+class4);
+            System.out.println(""+class5);
             /**
             * 这样写也是可以的
              * 而且最好写成"Java".equals(s);
@@ -34,9 +48,10 @@ public class TryTest {
 
             /**
             * 编译通过，运行错误，NullPointerException
-             * equals里面不可以放null
+             * s为null时不可以和其他进行比较
             * */
             System.out.println(""+s.equals(null));
+//            System.out.println(""+s.equals("hello"));
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         } catch (InstantiationException e) {
