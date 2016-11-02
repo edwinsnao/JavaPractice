@@ -110,9 +110,24 @@ public class TryTest {
             }
         }
 }
-class B extends TryTest{
+abstract class B extends TryTest{
     B(String s){
         super(null);
 //        super();
+    }
+    void print(){
+        System.out.println("");
+    }
+    abstract void print1();
+}
+class C extends B{
+
+    C(String s) {
+        super(s);
+    }
+
+    @Override
+    void print1() {
+
     }
 }
