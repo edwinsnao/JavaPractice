@@ -31,7 +31,6 @@ public class TryTest {
         /**
         * char是两个字节的
         * */
-//        System.out.println(""+ c.getBytes().length());
         System.out.println(""+Character.SIZE);
         System.out.println("size:"+s.length());
         String[] s1 = null;
