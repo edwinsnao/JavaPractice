@@ -25,6 +25,14 @@ public class TryTest {
 
     public static void main(String args[]){
 //        String s = "hello";
+
+
+
+        /**
+        * 未初始化的String如果需要使用的话是直接编译不通过
+        * */
+//        String s2;
+//        System.out.println("s="+s2);
         String s = "hello中";
         char c = 'h';
         char c1 = '中';
