@@ -37,8 +37,21 @@ public class TryTest {
         char c1 = '中';
         /**
         * char是两个字节的
+         * 16
+         32
+         64
+         8
+         16
+         32
+         64
         * */
         System.out.println(""+Character.SIZE);
+        System.out.println(""+Integer.SIZE);
+        System.out.println(""+Long.SIZE);
+        System.out.println(""+Byte.SIZE);
+        System.out.println(""+Short.SIZE);
+        System.out.println(""+Float.SIZE);
+        System.out.println(""+Double.SIZE);
         System.out.println("size:"+s.length());
         String[] s1 = null;
         try {
